@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Book Form Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h3>Book Mangement Form</h3>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+        <!-- Title -->
+        Book-Title:
+        <input type="text" formControlName="title" />
+        <small class="error" *ngIf="title?.touched && title?.hasError('required')">
+            *Title is required.
+        </small>
+        <small class="error" *ngIf="title?.touched && title?.hasError('minlength')">
+            *Title must be at least 3 characters.
+        </small>
+        <br><br>
+
+        <!-- Author -->
+        Book-Author:
+        <input type="text" formControlName="author" />
+        <small class="error" *ngIf="author?.touched && author?.hasError('required')">
+            *Author is required.
+        </small>
+        <small class="error" *ngIf="author?.touched && author?.hasError('minlength')">
+            *Author must be at least 5 characters.
+        </small>
+        <br><br>
+
+        <!-- ISBN -->
+        Book-ISBN:
+        <input type="number" formControlName="isbn" inputmode="numeric" />
+        <small class="error" *ngIf="isbn?.touched && isbn?.hasError('required')">
+            *ISBN is required.
+        </small>
+        <small class="error" *ngIf="isbn?.touched && isbn?.hasError('pattern')">
+            *ISBN must contain exactly 5 digits.
+        </small>
+        <br><br>
+
+        <!-- Year -->
+        Book-Year:
+        <input type="number" formControlName="year" inputmode="numeric" />
+        <small class="error" *ngIf="year?.touched && year?.hasError('required')">
+            *Year is required.
+        </small>
+        <small class="error" *ngIf="year?.touched && year?.hasError('pattern')">
+            * Year Must be in YYYY format and above 1900.
+        </small>
+        <br><br>
+
+        <!-- Genre -->
+        Book-Genre:
+        <select formControlName="genre">
+            <option value="select name">select Genre</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-fiction">Non-fiction</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Other">Other</option>
+        </select>
+        <small class="error" *ngIf="genre?.touched && genre?.hasError('required')">
+            *At least one genre is required.
+        </small>
+        <br><br>
+
+        <button type="submit" [disabled]="myForm.invalid">Add Book</button>
+    </form>
+</body>
+
+</html>

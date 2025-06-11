@@ -1,0 +1,31 @@
+<div>
+  <h2>Books List</h2>
+  <table border="1" [cellPadding]="5">
+    <thead>
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (book of books; track $index) {
+        <tr>
+          <td>{{ book.isbn }}</td>
+          <td>{{ book.title }}</td>
+          <td><button (click)="showDetails($index)">Details</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="selectedBook">
+  <h2>Book Detail</h2>
+  <p><strong>Title:</strong> {{ selectedBook.title }}</p>
+  <p><strong>Author:</strong> {{ selectedBook.author }}</p>
+  <p><strong>ISBN:</strong> {{ selectedBook.isbn }}</p>
+  <p><strong>Year:</strong> {{ selectedBook.year }}</p>
+  <p><strong>Genre:</strong> {{ selectedBook.genre }}</p>
+</div>
+
