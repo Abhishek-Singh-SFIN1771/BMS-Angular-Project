@@ -17,8 +17,9 @@ export class BooklistComponent {
   // DI
   constructor(private bs: BookService) { }
 
-
-
+  ngOnInit(): void {
+    this.books = this.bs.getBook();
+  }
 
   bookList() {
     this.detailBlock = !this.detailBlock;
