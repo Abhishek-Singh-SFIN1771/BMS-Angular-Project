@@ -1,12 +1,22 @@
-<nav>
-    <h1>BMS - Manage your books digitaly</h1>
+<nav class="flex justify-between items-center p-4 bg-gray-100 shadow-md mb-4">
+  <h1 class="text-xl font-bold text-red-600">BMS - Manage your books digitally</h1>
 
-    <ul>
-        <li>
-            <a routerLink="bookForm" routerLinkActive="active">Book Form</a>
-        </li>
-        <li>
-            <a routerLink="bookList" routerLinkActive="active">Books List</a>
-        </li>
-    </ul>
+  <ul class="flex space-x-4">
+    <li>
+      <a 
+        routerLink="bookForm" 
+        routerLinkActive="active" 
+        class="px-3 py-1 rounded hover:bg-gray-300 transition"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Book Form</a>
+    </li>
+    <li>
+      <a 
+        routerLink="bookList" 
+        routerLinkActive="active" 
+        class="px-3 py-1 rounded hover:bg-gray-300 transition"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >Books List</a>
+    </li>
+  </ul>
 </nav>

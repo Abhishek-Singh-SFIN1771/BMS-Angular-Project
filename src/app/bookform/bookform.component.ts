@@ -10,12 +10,11 @@ import { NgIf } from '@angular/common';
   templateUrl: './bookform.component.html',
   styleUrl: './bookform.component.css'
 })
-export class BookformComponent 
-{
-   bookList: Book[] = [];
+export class BookformComponent {
+  bookList: Book[] = [];
 
   // DI
-  constructor(private bs: BookService){}
+  constructor(private bs: BookService) { }
 
   myForm = new FormGroup({
     title: new FormControl<string>('', [Validators.required, Validators.minLength(3)]),
@@ -32,10 +31,10 @@ export class BookformComponent
   get genre() { return this.myForm.get('genre'); }
 
   onSubmit() {
-    if (this.myForm.valid){
-    const data = this.myForm.value as Book
-    this.bs.addBook(data);
-    this.myForm.reset();
+    if (this.myForm.valid) {
+      const data = this.myForm.value as Book
+      this.bs.addBook(data);
+      this.myForm.reset();
     }
   }
 }

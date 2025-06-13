@@ -9,27 +9,23 @@ import { NgIf } from '@angular/common';
   templateUrl: './booklist.component.html',
   styleUrl: './booklist.component.css'
 })
-export class BooklistComponent 
-{
+export class BooklistComponent {
   books: Book[] = [];
   selectedBook!: Book;
   detailBlock: boolean = false;
 
- // DI
- constructor(private bs: BookService)
- {}
+  // DI
+  constructor(private bs: BookService) { }
 
 
 
 
- bookList()
- {
-  this.detailBlock = !this.detailBlock;
-  this.books = this.bs.getBook();
- }
+  bookList() {
+    this.detailBlock = !this.detailBlock;
+    this.books = this.bs.getBook();
+  }
 
- showDetails(index: number): void
- {
-  this.selectedBook = this.books[index];
- }
+  showDetails(index: number): void {
+    this.selectedBook = this.books[index];
+  }
 }
