@@ -10,7 +10,7 @@ describe('BookformComponent', () => {
     await TestBed.configureTestingModule({
       imports: [BookformComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(BookformComponent);
     component = fixture.componentInstance;
