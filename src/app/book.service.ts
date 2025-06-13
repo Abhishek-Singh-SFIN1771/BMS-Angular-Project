@@ -4,16 +4,17 @@ import { Book } from './Model/Book.component';
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
 
- private bookList: Book[] = [];
-  
+export class BookService 
+{
+  private bookList: Book[] = [];
+ 
   addBook(book: Book): void 
   {
-    this.bookList.push(book);
+    this.bookList.push(book);  
   }
 
-  getBook(): Book[]
+  getBook(): Book[] 
   {
     return [...this.bookList];
   }

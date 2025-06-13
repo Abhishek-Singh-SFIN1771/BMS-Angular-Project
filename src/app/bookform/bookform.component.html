@@ -1,78 +1,89 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Book Form Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Book Form Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-    <h3>Book Mangement Form</h3>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded shadow-lg w-full max-w-md">
+    <h3 class="text-2xl font-semibold text-blue-700 mb-6 text-center">📘 Book Management Form</h3>
 
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="space-y-4">
 
-        <!-- Title -->
-        Book-Title:
-        <input type="text" formControlName="title" />
-        <small class="error" *ngIf="title?.touched && title?.hasError('required')">
-            *Title is required.
+      <!-- Title -->
+      <div>
+        <label class="block mb-1 font-medium">Book Title:</label>
+        <input type="text" formControlName="title" class="w-full p-2 border rounded" />
+        <small class="text-red-500" *ngIf="title?.touched && title?.hasError('required')">
+          *Title is required.
         </small>
-        <small class="error" *ngIf="title?.touched && title?.hasError('minlength')">
-            *Title must be at least 3 characters.
+        <small class="text-red-500" *ngIf="title?.touched && title?.hasError('minlength')">
+          *Title must be at least 3 characters.
         </small>
-        <br><br>
+      </div>
 
-        <!-- Author -->
-        Book-Author:
-        <input type="text" formControlName="author" />
-        <small class="error" *ngIf="author?.touched && author?.hasError('required')">
-            *Author is required.
+      <!-- Author -->
+      <div>
+        <label class="block mb-1 font-medium">Book Author:</label>
+        <input type="text" formControlName="author" class="w-full p-2 border rounded" />
+        <small class="text-red-500" *ngIf="author?.touched && author?.hasError('required')">
+          *Author is required.
         </small>
-        <small class="error" *ngIf="author?.touched && author?.hasError('minlength')">
-            *Author must be at least 5 characters.
+        <small class="text-red-500" *ngIf="author?.touched && author?.hasError('minlength')">
+          *Author must be at least 5 characters.
         </small>
-        <br><br>
+      </div>
 
-        <!-- ISBN -->
-        Book-ISBN:
-        <input type="number" formControlName="isbn" inputmode="numeric" />
-        <small class="error" *ngIf="isbn?.touched && isbn?.hasError('required')">
-            *ISBN is required.
+      <!-- ISBN -->
+      <div>
+        <label class="block mb-1 font-medium">Book ISBN:</label>
+        <input type="number" formControlName="isbn" class="w-full p-2 border rounded" inputmode="numeric" />
+        <small class="text-red-500" *ngIf="isbn?.touched && isbn?.hasError('required')">
+          *ISBN is required.
         </small>
-        <small class="error" *ngIf="isbn?.touched && isbn?.hasError('pattern')">
-            *ISBN must contain exactly 5 digits.
+        <small class="text-red-500" *ngIf="isbn?.touched && isbn?.hasError('pattern')">
+          *ISBN must contain exactly 5 digits.
         </small>
-        <br><br>
+      </div>
 
-        <!-- Year -->
-        Book-Year:
-        <input type="number" formControlName="year" inputmode="numeric" />
-        <small class="error" *ngIf="year?.touched && year?.hasError('required')">
-            *Year is required.
+      <!-- Year -->
+      <div>
+        <label class="block mb-1 font-medium">Book Year:</label>
+        <input type="number" formControlName="year" class="w-full p-2 border rounded" inputmode="numeric" />
+        <small class="text-red-500" *ngIf="year?.touched && year?.hasError('required')">
+          *Year is required.
         </small>
-        <small class="error" *ngIf="year?.touched && year?.hasError('pattern')">
-            * Year Must be in YYYY format and above 1900.
+        <small class="text-red-500" *ngIf="year?.touched && year?.hasError('pattern')">
+          *Year must be in YYYY format and above 1900.
         </small>
-        <br><br>
+      </div>
 
-        <!-- Genre -->
-        Book-Genre:
-        <select formControlName="genre">
-            <option value="select name">select Genre</option>
-            <option value="Fiction">Fiction</option>
-            <option value="Non-fiction">Non-fiction</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Science Fiction">Science Fiction</option>
-            <option value="Other">Other</option>
+      <!-- Genre -->
+      <div>
+        <label class="block mb-1 font-medium">Book Genre:</label>
+        <select formControlName="genre" class="w-full p-2 border rounded">
+          <option value="select name">Select Genre</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-fiction">Non-fiction</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Other">Other</option>
         </select>
-        <small class="error" *ngIf="genre?.touched && genre?.hasError('required')">
-            *At least one genre is required.
+        <small class="text-red-500" *ngIf="genre?.touched && genre?.hasError('required')">
+          *At least one genre is required.
         </small>
-        <br><br>
+      </div>
 
-        <button type="submit" [disabled]="myForm.invalid">Add Book</button>
+      <div class="text-center">
+        <button type="submit"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded"
+          [disabled]="myForm.invalid">
+          Add Book
+        </button>
+      </div>
     </form>
+  </div>
 </body>
-
 </html>

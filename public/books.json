@@ -1,0 +1,16 @@
+[
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "isbn": "12345",
+    "year": "1993",
+    "genre": "Fiction"
+  },
+  {
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "isbn": "67890",
+    "year": "2014",
+    "genre": "Non-fiction"
+  }
+]

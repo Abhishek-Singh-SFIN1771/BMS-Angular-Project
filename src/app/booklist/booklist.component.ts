@@ -12,14 +12,19 @@ import { NgIf } from '@angular/common';
 export class BooklistComponent 
 {
   books: Book[] = [];
- selectedBook!: Book
+  selectedBook!: Book;
+  detailBlock: boolean = false;
 
  // DI
  constructor(private bs: BookService)
  {}
 
- ngOnInit(): void
+
+
+
+ bookList()
  {
+  this.detailBlock = !this.detailBlock;
   this.books = this.bs.getBook();
  }
 
