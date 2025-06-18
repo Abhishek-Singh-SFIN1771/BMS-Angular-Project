@@ -12,7 +12,7 @@ export class BookService {
 
   constructor(private http:HttpClient)
   {
-    this.loadInitialBooks();
+     this.loadInitialBooks();
   }
 
   addBook(book: Book): void {

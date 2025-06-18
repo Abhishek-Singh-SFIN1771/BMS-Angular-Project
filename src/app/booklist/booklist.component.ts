@@ -15,11 +15,7 @@ export class BooklistComponent {
   detailBlock: boolean = false;
 
   // DI
-  constructor(private bs: BookService) { }
-
-  ngOnInit(): void {
-    this.books = this.bs.getBook();
-  }
+  constructor(private bs: BookService) {}
 
   bookList() {
     this.detailBlock = !this.detailBlock;
