@@ -4,6 +4,7 @@
     Show Book List
   </button>
 </div>
+
 <div class="p-6 bg-white rounded shadow-md" *ngIf="detailBlock">
   <table class="w-full table-auto border border-gray-300 text-sm">
     <thead class="bg-gray-100">
@@ -30,7 +31,7 @@
   </table>
 </div>
 
-<div *ngIf="selectedBook" class="mt-6 p-4 bg-gray-50 rounded border border-gray-300">
+<div *ngIf="selectedBook!= null" class="mt-6 p-4 bg-gray-50 rounded border border-gray-300">
   <h2 class="text-xl font-semibold text-gray-700 mb-2">📖 Book Detail</h2>
   <p><strong class="text-gray-600">Title:</strong> {{ selectedBook.title }}</p>
   <p><strong class="text-gray-600">Author:</strong> {{ selectedBook.author }}</p>

@@ -12,5 +12,20 @@
     "isbn": "67890",
     "year": "2014",
     "genre": "Non-fiction"
+  },
+   {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "isbn": "9780547928227",
+    "year": "1937",
+    "genre": "fantasy"
+  },
+  
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "isbn": "9780451524935",
+    "year": "1949",
+    "genre": "fiction"
   }
 ]
