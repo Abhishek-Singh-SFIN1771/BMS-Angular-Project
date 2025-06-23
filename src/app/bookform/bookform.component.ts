@@ -13,7 +13,7 @@ import { NgIf } from '@angular/common';
 export class BookformComponent {
   bookList: Book[] = [];
 
-  // DI
+  // Dependency Management Used after careful study
   constructor(private bs: BookService) { }
 
   myForm = new FormGroup({

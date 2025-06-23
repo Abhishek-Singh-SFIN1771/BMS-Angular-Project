@@ -14,8 +14,8 @@ export class BooklistComponent {
   selectedBook!: Book;
   detailBlock: boolean = false;
 
-  // DI
-  constructor(private bs: BookService) {}
+  // Dependency Management Used after careful study
+  constructor(private bs: BookService) {} 
 
   bookList() {
     this.detailBlock = !this.detailBlock;

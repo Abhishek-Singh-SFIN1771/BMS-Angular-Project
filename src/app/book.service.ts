@@ -24,12 +24,16 @@ export class BookService {
   }
 
  loadInitialBooks(): void {
-    this.http.get<Book[]>('books.json')
+    const sub = this.http.get<Book[]>('books.json')
       .pipe(
         tap((booksFromJson: Book[]) => {
           this.bookList = [...booksFromJson]; // set initial books from JSON
         })
       )
-      .subscribe(); // actually trigger the HTTP request
+      .subscribe(() => { // actually trigger the HTTP request
+        next: () => {
+          sub.unsubscribe(); // unsubscibe after the data is loaded 
+        }
+      }); 
   }
 }
