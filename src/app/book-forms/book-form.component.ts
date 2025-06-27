@@ -1,8 +1,8 @@
 import { Component, effect } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BookService } from '../book.service';
-import { Book } from '../Model/Book.component';
 import { NgIf } from '@angular/common';
+import { Book } from '../book-interface/book-interface.component';
 
 @Component({
   selector: 'app-bookform',

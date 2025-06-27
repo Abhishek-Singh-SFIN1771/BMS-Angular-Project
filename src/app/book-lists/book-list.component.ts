@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Book } from '../Model/Book.component';
 import { BookService } from '../book.service';
 import { NgIf } from '@angular/common';
+import { Book } from '../book-interface/book-interface.component';
 
 @Component({
   selector: 'app-booklist',
