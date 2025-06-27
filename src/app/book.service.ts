@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Book } from './Model/Book.component';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';
+import { Subscription, tap } from 'rxjs';
+import { Book } from './book-interface/book-interface.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +10,30 @@ import { tap } from 'rxjs';
 export class BookService 
 {
   private bookList: Book[] = [];
+  private bookSubscription: Subscription | undefined;
 
   constructor(private http: HttpClient)
   {
    this.loadInitialBooks();
   }
 
-  loadInitialBooks() 
+  loadInitialBooks(): void
   {
-     this.http.get<Book[]>('books.json')
+     this.bookSubscription = this.http.get<Book[]>('books.json')
       .pipe(
         tap((booksFromJson: Book[]) => {
           this.bookList = [...booksFromJson]; // set initial books from JSON
         })
       )
       .subscribe(); // actually trigger the HTTP request
+  }
+
+  ngOnDestroy(): void
+  {
+    if(this.bookSubscription)
+      {
+        this.bookSubscription.unsubscribe(); // prevents memory leak
+      }
   }
 
  
